@@ -18,6 +18,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { StartComponent } from './components/start/start.component';
 import { TextoComponent } from './components/texto/texto.component';
+import { WinComponent } from './components/win/win.component';
+import { LoseComponent } from './components/lose/lose.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TextoComponent } from './components/texto/texto.component';
     MainComponent,
     DecisionComponent,
     StartComponent,
-    TextoComponent
+    TextoComponent,
+    WinComponent,
+    LoseComponent
   ],
   imports: [
     BrowserModule,

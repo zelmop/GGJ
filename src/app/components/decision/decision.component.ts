@@ -19,9 +19,10 @@ export class DecisionComponent implements OnInit {
   public setDecisionesCuatro: string[] = [];
   public setDecisionesCinco: string[] = [];
 
+  public setFinal: any;
+
   constructor( public dialogRef: MatDialogRef<DecisionComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.case = this.data.case;
-    console.log(this.case);
 
     this.setDecisionesUno = [ '../../../../assets/decisionUno01.jpg',
                         '../../../../assets/decisionUno02.jpg',
@@ -65,39 +66,50 @@ export class DecisionComponent implements OnInit {
       default:
         break;
     }
-
-    console.log(this.imagen);
   }
 
   decision(decisionTomada: boolean) {
-    if (decisionTomada && this.case === 0) {
-      this.imagen = this.setDecisionesUno[1];
-    } else {
-      this.imagen = this.setDecisionesUno[2];
-    }
+    let that = this;
+    // debugger;
+    console.log(that.case);
 
-    if (decisionTomada && this.case === 5) {
-      this.imagen = this.setDecisionesDos[1];
-    } else {
-      this.imagen = this.setDecisionesDos[2];
-    }
-
-    if (decisionTomada && this.case === 10) {
-      this.imagen = this.setDecisionesTres[1];
-    } else {
-      this.imagen = this.setDecisionesTres[2];
-    }
-
-    if (decisionTomada && this.case === 15) {
-      this.imagen = this.setDecisionesCuatro[1];
-    } else {
-      this.imagen = this.setDecisionesCuatro[2];
-    }
-
-    if (decisionTomada && this.case === 20) {
-      this.imagen = this.setDecisionesCinco[1];
-    } else {
-      this.imagen = this.setDecisionesCinco[2];
+    switch(that.case) {
+      case 0:
+        if (decisionTomada) {
+          that.imagen = that.setDecisionesUno[1];
+        } else {
+          that.imagen = that.setDecisionesUno[2];
+        }
+        break;
+      case 5:
+        if (decisionTomada) {
+          that.imagen = that.setDecisionesDos[1];
+        } else {
+          that.imagen = that.setDecisionesDos[2];
+        }
+        break;
+      case 10:
+        if (decisionTomada) {
+          that.imagen = that.setDecisionesTres[1];
+        } else {
+          that.imagen = that.setDecisionesTres[2];
+        }
+        break;
+      case 15:
+        if (decisionTomada) {
+          that.imagen = that.setDecisionesCuatro[1];
+        } else {
+          that.imagen = that.setDecisionesCuatro[2];
+        }
+      case 20:
+        if (decisionTomada) {
+          that.imagen = that.setDecisionesCinco[1];
+        } else {
+          that.imagen = that.setDecisionesCinco[2];
+        }
+        break;
+      default:
+        break;
     }
 
     setTimeout(() => {

@@ -26,6 +26,9 @@ export class MainComponent implements OnInit {
   public height = 400;
   public list: Array<any> = [];
 
+  public life = 3;
+  public asserts = 0;
+
   constructor( public dialog: MatDialog ) { }
 
   ngOnInit() {
@@ -82,8 +85,20 @@ export class MainComponent implements OnInit {
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        console.log(result);
+        if (result) {
+          this.asserts++;
+        } else {
+          this.life -= 1;
+        }
       });
+
+      if (this.life === 0) {
+
+      }
+
+      if (this.asserts === 4) {
+        
+      }
   }
   public handleMouseEnter(item: any) {
   }
