@@ -17,13 +17,15 @@ import { DecisionComponent } from './components/decision/decision.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { StartComponent } from './components/start/start.component';
+import { TextoComponent } from './components/texto/texto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     DecisionComponent,
-    StartComponent
+    StartComponent,
+    TextoComponent
   ],
   imports: [
     BrowserModule,

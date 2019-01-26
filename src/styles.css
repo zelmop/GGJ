@@ -31,3 +31,26 @@
   width: 100%;
   height: 95vh;
 }
+
+/* texto */
+.texto-definitions {
+  font-style: italic;
+  font-style: oblique;
+  font-size: 3.5rem;
+}
+
+.texto-container {
+  margin-top: 100px;
+}
+
+.word01  {
+  font-size: 4rem;
+}
+
+.word02 {
+  font-size: 3rem;
+}
+
+.buton-container {
+  margin-top: 50px;
+}

@@ -1,0 +1,13 @@
+<div [@bounce]="bounce" [@flash]="flash">
+  <div class="texto-container">
+    <h1 class="texto-definitions"><span class="word02">...tienes</span> que <span class="word01">encontrar el</span> camino...</h1>
+  </div>
+</div>
+
+<div *ngIf="continue" fxLayout="row" fxLayoutAlign="center center" class="buton-container">
+  <button mat-stroked-button (click)="continuar()">
+    <i class="material-icons">keyboard_arrow_left</i>
+    <strong>CONTINUAR</strong>
+    <i class="material-icons">keyboard_arrow_right</i>
+  </button>
+</div>
