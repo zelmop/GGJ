@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* general */
+
+/* main */
+.main-game-container {
+  width: 900px;
+  height: 550px;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.canvas-container {
+  padding-left: 50px;
+  padding-top: 50px;
+}
