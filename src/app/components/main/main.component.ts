@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material';
 import { DecisionComponent } from '../decision/decision.component';
 
 export interface DialogData {
-  imagen: string;
+  case: number;
 }
 
 declare const Konva: any;
@@ -26,7 +26,6 @@ export class MainComponent implements OnInit {
   public height = 400;
   public list: Array<any> = [];
 
-  public urlString01 = '../../../assets/test01.jpg';
   constructor( public dialog: MatDialog ) { }
 
   ngOnInit() {
@@ -76,10 +75,10 @@ export class MainComponent implements OnInit {
     height: this.height
   });
 
-  public handleClick(item) {
+  public handleClick(circle, decision) {
       const dialogRef = this.dialog.open(DecisionComponent, {
         width: '700px',
-        data: { imagen: this.urlString01 }
+        data: { case: decision }
       });
 
       dialogRef.afterClosed().subscribe(result => {

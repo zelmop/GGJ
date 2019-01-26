@@ -1,10 +1,10 @@
 <div class="decision-container">
   <img src={{imagen}} class="imagen-decision">
   <div class="">
-    <button mat-stroked-button (click)="decision('decisionBuena')">
+    <button mat-stroked-button (click)="decision(true)">
       <i class="material-icons">directions_run</i>
     </button>
-    <button mat-stroked-button (click)="decision('decisionMala')">
+    <button mat-stroked-button (click)="decision(false)">
       <i class="material-icons">accessibility</i>
     </button>
   </div>
