@@ -14,12 +14,16 @@ import { MainComponent } from './components/main/main.component';
 // material
 import { MatDialogModule } from '@angular/material/dialog';
 import { DecisionComponent } from './components/decision/decision.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { StartComponent } from './components/start/start.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    DecisionComponent
+    DecisionComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
@@ -28,12 +32,16 @@ import { DecisionComponent } from './components/decision/decision.component';
     FlexLayoutModule,
     ParticlesModule,
     KonvaModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatButtonModule
   ],
   entryComponents: [
     DecisionComponent
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

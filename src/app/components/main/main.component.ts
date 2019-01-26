@@ -18,7 +18,6 @@ let ng: any;
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
   @ViewChild('stage') stage: KonvaComponent;
   @ViewChild('layer') layer: KonvaComponent;
   @ViewChild('circle') cirlce: KonvaComponent;
@@ -27,6 +26,7 @@ export class MainComponent implements OnInit {
   public height = 400;
   public list: Array<any> = [];
 
+  public urlString01 = '../../../assets/test01.jpg';
   constructor( public dialog: MatDialog ) { }
 
   ngOnInit() {
@@ -79,7 +79,7 @@ export class MainComponent implements OnInit {
   public handleClick(item) {
       const dialogRef = this.dialog.open(DecisionComponent, {
         width: '700px',
-        data: { imagen: 'imagen decision 1'}
+        data: { imagen: this.urlString01 }
       });
 
       dialogRef.afterClosed().subscribe(result => {

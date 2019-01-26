@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 // componentes
 import { MainComponent } from './components/main/main.component';
+import { StartComponent } from './components/start/start.component';
 
 const routes: Routes = [
+  { path: 'start', component: StartComponent },
   { path: 'home', component: MainComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: MainComponent }

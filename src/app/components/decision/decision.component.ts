@@ -10,11 +10,16 @@ import { DialogData } from '../main/main.component';
 })
 export class DecisionComponent implements OnInit {
 
-  constructor(  public dialogRef: MatDialogRef<DecisionComponent>,
-                @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+  public imagen: string;
+  constructor( public dialogRef: MatDialogRef<DecisionComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    this.imagen = '../../../../assets/test01.jpg';
+  }
 
   ngOnInit() {
-    console.log(this.data);
+  }
+
+  decision(decisionTomada: string) {
+    this.dialogRef.close(decisionTomada);
   }
 
 }
