@@ -30,14 +30,30 @@ export class MainComponent implements AfterViewInit {
   public flash: any;
   public pulse: any;
 
+  public disable01: boolean;
+  public disable02: boolean;
+  public disable03: boolean;
+  public disable04: boolean;
+  public disable05: boolean;
+
+  public audio = new Audio();
+
   @ViewChild( 'myCanvas' ) canvas: ElementRef;
-  constructor( public dialog: MatDialog, private route: Router ) { }
+  constructor( public dialog: MatDialog, private route: Router ) {
+    this.disable01 = false;
+    this.disable02 = false;
+    this.disable03 = false;
+    this.disable04 = false;
+    this.disable05 = false;
+  }
 
   ngAfterViewInit() {
     const canvas = this.canvas.nativeElement;
     this.context = canvas.getContext( '2d' );
 
     this.tick();
+
+    this.playAudio();
   }
 
   public tick() {
@@ -61,11 +77,38 @@ export class MainComponent implements AfterViewInit {
 
   }
 
+  public playAudio() {
+    this.audio.src = '../../../assets/sound/test.mp3';
+    this.audio.load();
+    this.audio.play();
+  }
+
   public checkEvent(event) {
     console.log(event);
   }
 
   public decidir(decision) {
+
+      switch(decision){
+        case 1:
+          this.disable01 = true;
+          break;
+        case 2:
+          this.disable01 = true;
+          break;
+        case 3:
+          this.disable01 = true;
+          break;
+        case 4:
+          this.disable01 = true;
+          break;
+        case 5:
+          this.disable01 = true;
+          break;
+        default:
+          break;
+      }
+
       const dialogRef = this.dialog.open(DecisionComponent, {
         width: '700px',
         data: { case: decision }
@@ -84,7 +127,7 @@ export class MainComponent implements AfterViewInit {
           }
         }
       });
-      
+
   }
 
 }

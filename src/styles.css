@@ -34,6 +34,17 @@
   height: 95vh;
 }
 
+.boton-start {
+  margin: 10px;
+}
+
+.start-tooltip {
+  text-align: center;
+  background-color: rgba(83, 131, 170);
+  font-size: 0.8rem;
+  width: 200px;
+}
+
 /* texto */
 .texto-definitions {
   font-style: italic;
@@ -58,7 +69,7 @@
 
 /* win */
 .image-blurred-edge {
-    background-image: url('./assets/fondo_victoria.png');
+    background-image: url('./assets/final_bueno.png');
     width: 1250px;
     height: 630px;
     /* you need to match the shadow color to your background or image border for the desired effect*/
@@ -68,6 +79,15 @@
 .texto-container {
   padding-top: 20px;
   padding-left: 70px;
+}
+
+/* lose */
+.image-blurred-edge-lose {
+    background-image: url('./assets/final_malo.png');
+    width: 1200px;
+    height: 100vh;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+    box-shadow: 0 0 12px 12px white inset;
 }
 
 /* bright */
