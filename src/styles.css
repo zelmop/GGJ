@@ -36,7 +36,6 @@
 .texto-definitions {
   font-style: italic;
   font-style: oblique;
-  font-size: 3.5rem;
 }
 
 .texto-container {
@@ -53,4 +52,47 @@
 
 .buton-container {
   margin-top: 50px;
+}
+
+/* win */
+.image-blurred-edge {
+    background-image: url('./assets/fondo_victoria.png');
+    width: 1250px;
+    height: 630px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+    box-shadow: 0 0 12px 12px white inset;
+}
+
+.texto-container {
+  padding-top: 20px;
+  padding-left: 70px;
+}
+
+/* animations */
+
+/* bright */
+.animation-container {
+  animation-name: imagenBright;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes imagenBright {
+  0% { background: white; }
+  50% { background: red; }
+  100% { background: white; }
+}
+
+/* shine efect*/
+.shine-text {
+  font-size: 2rem;
+  text-decoration: none;
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  from { -webkit-mask-position: 150%; }
+  to { -webkit-mask-position: -50%; }
 }
