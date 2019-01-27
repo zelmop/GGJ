@@ -48,19 +48,19 @@ export class DecisionComponent implements OnInit {
 
   ngOnInit() {
     switch(this.case){
-      case 0:
+      case 1:
         this.imagen = this.setDecisionesUno[0];
         break;
-      case 5:
+      case 2:
         this.imagen = this.setDecisionesDos[0];
         break;
-      case 10:
+      case 3:
         this.imagen = this.setDecisionesTres[0];
         break;
-      case 15:
+      case 4:
         this.imagen = this.setDecisionesCuatro[0];
         break;
-      case 20:
+      case 5:
         this.imagen = this.setDecisionesCinco[0];
         break;
       default:
@@ -74,34 +74,34 @@ export class DecisionComponent implements OnInit {
     console.log(that.case);
 
     switch(that.case) {
-      case 0:
+      case 1:
         if (decisionTomada) {
           that.imagen = that.setDecisionesUno[1];
         } else {
           that.imagen = that.setDecisionesUno[2];
         }
         break;
-      case 5:
+      case 2:
         if (decisionTomada) {
           that.imagen = that.setDecisionesDos[1];
         } else {
           that.imagen = that.setDecisionesDos[2];
         }
         break;
-      case 10:
+      case 3:
         if (decisionTomada) {
           that.imagen = that.setDecisionesTres[1];
         } else {
           that.imagen = that.setDecisionesTres[2];
         }
         break;
-      case 15:
+      case 4:
         if (decisionTomada) {
           that.imagen = that.setDecisionesCuatro[1];
         } else {
           that.imagen = that.setDecisionesCuatro[2];
         }
-      case 20:
+      case 5:
         if (decisionTomada) {
           that.imagen = that.setDecisionesCinco[1];
         } else {
@@ -114,7 +114,7 @@ export class DecisionComponent implements OnInit {
 
     setTimeout(() => {
       this.dialogRef.close(decisionTomada);
-    }, 2500);
+    }, 1000);
 
   }
 

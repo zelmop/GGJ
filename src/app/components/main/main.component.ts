@@ -1,84 +1,71 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Observable, of } from 'rxjs';
-import { KonvaComponent } from 'ng2-konva';
+import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { flash, pulse } from 'ng-animate';
+import { Router } from '@angular/router';
 
+// material
 import { MatDialog } from '@angular/material';
+// components
 import { DecisionComponent } from '../decision/decision.component';
 
 export interface DialogData {
   case: number;
 }
 
-declare const Konva: any;
-let ng: any;
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
+  animations: [
+    trigger('flash', [transition('* => *', useAnimation(flash, {params: {timing: 8}}))]),
+    trigger('pulse', [transition('* => *', useAnimation(pulse, {params: { timing: 2, delay: 0.5}}))])
+  ]
 })
-export class MainComponent implements OnInit {
-  @ViewChild('stage') stage: KonvaComponent;
-  @ViewChild('layer') layer: KonvaComponent;
-  @ViewChild('circle') cirlce: KonvaComponent;
 
-  public width = 800;
-  public height = 400;
-  public list: Array<any> = [];
+export class MainComponent implements AfterViewInit {
+  context: CanvasRenderingContext2D;
 
   public life = 3;
   public asserts = 0;
+  public flash: any;
+  public pulse: any;
 
-  constructor( public dialog: MatDialog ) { }
+  @ViewChild( 'myCanvas' ) canvas: ElementRef;
+  constructor( public dialog: MatDialog, private route: Router ) { }
 
-  ngOnInit() {
-    ng = this;
+  ngAfterViewInit() {
+    const canvas = this.canvas.nativeElement;
+    this.context = canvas.getContext( '2d' );
 
-    for (let n = 0; n < 25; n++) {
-      let color = '';
-      let radius: number;
-      if (n % 5) {
-        color = 'white';
-        radius = 5;
-      } else {
-        color = 'red';
-        radius = 8;
-      }
-      let x = Math.random() * 750;
-      let y = Math.random() * 300;
-
-      if (x <= 0) {
-        x += 10;
-      }
-      if (x > 400) {
-        x -= 10;
-      }
-
-      if (y > 800) {
-        y -= 10;
-      }
-      if (y <= 0) {
-        y += 10;
-      }
-
-      this.list.push(
-        new BehaviorSubject({
-          x: x,
-          y: y,
-          radius: radius,
-          fill: color,
-          opacity: 0.5
-        })
-      );
-    }
+    this.tick();
   }
 
-  public configStage: Observable<any> = of({
-    width: this.width,
-    height: this.height
-  });
+  public tick() {
+    const ctx = this.context;
+    for (let i = 0; i < 400; i++) {
+      let x = Math.floor(Math.random()*(1500)+1);
+      let y = Math.floor(Math.random()*(600)+1);
 
-  public handleClick(circle, decision) {
+      if (i % 3) {
+        let color = "#" +  Math.floor(Math.random()*0xFFFFFF).toString(16);
+        ctx.fillStyle = color;
+      } else {
+        ctx.fillStyle = 'white';
+      }
+
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc( x, y, 1.1, 0 ,2*Math.PI);
+      ctx.stroke();
+    }
+
+  }
+
+  public checkEvent(event) {
+    console.log(event);
+  }
+
+  public decidir(decision) {
       const dialogRef = this.dialog.open(DecisionComponent, {
         width: '700px',
         data: { case: decision }
@@ -93,17 +80,12 @@ export class MainComponent implements OnInit {
       });
 
       if (this.life === 0) {
-
+        this.route.navigate(['/lose']);
       }
 
       if (this.asserts === 4) {
-        
+        this.route.navigate(['/win']);
       }
-  }
-  public handleMouseEnter(item: any) {
-  }
-  public handleMouseLeave(component) {
-    //console.log('sali');
   }
 
 }

@@ -1,13 +1,74 @@
 <div class="main-game-container">
+
   <div class="canvas-container">
-    <ko-stage #stage [config]="configStage">
-      <ko-layer #layer>
-        <ko-circle #cirlce *ngFor="let circle of list; let i = index"
-                    [config]="circle"
-                    (mouseover)="handleMouseEnter(circle)"
-                    (mouseout)="handleMouseLeave($event)"
-                    (click)="handleClick(circle, i)"></ko-circle>
-      </ko-layer>
-    </ko-stage>
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <!-- decision 1-->
+    <div fxFlex="20%">
+      <mat-card [@flash]="flash" (click)="decidir(1)">
+        <mat-card-header>
+          <mat-card-title>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image src="">
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- decision 2-->
+    <div fxFlex="20%">
+      <mat-card [@flash]="flash" (click)="decidir(2)">
+        <mat-card-header>
+          <mat-card-title>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image src="">
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- decision 3-->
+    <div fxFlex="20%">
+      <mat-card [@flash]="flash" (click)="decidir(3)">
+        <mat-card-header>
+          <mat-card-title>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image src="">
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- decision 4-->
+    <div fxFlex="20%">
+      <mat-card [@flash]="flash" (click)="decidir(4)">
+        <mat-card-header>
+          <mat-card-title>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image src="">
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- decision 5-->
+    <div fxFlex="20%">
+      <mat-card [@flash]="flash" (click)="decidir(5)">
+        <mat-card-header>
+          <mat-card-title>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <img mat-card-image src="">
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+  <canvas [@flash]="flash" #myCanvas width="1300" height="450"></canvas>
+
   </div>
 </div>
