@@ -1,11 +1,11 @@
 <div class="decision-container">
   <img src={{imagen}} class="imagen-decision">
   <div class="">
-    <button mat-stroked-button (click)="decision(true)">
-      <i class="material-icons">directions_run</i>
+    <button mat-stroked-button (mouseenter)="playClickedAudio()" (mouseleave)="stopClickedAudio()" (click)="decision(true)">
+      <i class="material-icons">trending_up</i>
     </button>
-    <button mat-stroked-button (click)="decision(false)">
-      <i class="material-icons">accessibility</i>
+    <button mat-stroked-button (mouseenter)="playClickedAudio()" (mouseleave)="stopClickedAudio()" (click)="decision(false)">
+      <i class="material-icons">trending_down</i>
     </button>
   </div>
 </div>

@@ -4,7 +4,7 @@
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <!-- decision 1-->
     <div fxFlex="20%">
-      <mat-card [@flash]="flash" (mouseenter)="playAudio()" (mouseleave)="stopAudio()">
+      <mat-card [@flash]="flash" class="test">
         <mat-card-header>
           <mat-card-title>
           </mat-card-title>
@@ -13,14 +13,16 @@
           <img mat-card-image src="../../../assets/viaje.png">
         </mat-card-content>
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-          <button mat-raised-button matTooltip="...cualquier camino que elijas" (click)="decidir(1)" [disabled]="disable01" matTooltipClass="start-tooltip">TRANSITAR</button>
+          <button mat-raised-button matTooltip="...cualquier camino que elijas"
+                  (click)="decidir(1)" [disabled]="disable01"
+                  matTooltipClass="start-tooltip" (mouseenter)="playClickAudio()" (mouseleave)="stopClickAudio()">TRANSITAR</button>
         </mat-card-actions>
       </mat-card>
     </div>
 
     <!-- decision 2-->
-    <div fxFlex="20%">
-      <mat-card [@flash]="flash" (click)="decidir(2)">
+    <div fxFlex="20%" >
+      <mat-card [@flash]="flash" class="test">
         <mat-card-header>
           <mat-card-title>
           </mat-card-title>
@@ -29,14 +31,16 @@
           <img mat-card-image src="../../../assets/necesidad.png">
         </mat-card-content>
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-          <button mat-raised-button matTooltip="...por necesidad siempre es viable" (click)="decidir(2)" [disabled]="disable02" matTooltipClass="start-tooltip">ACERCARSE</button>
+          <button mat-raised-button matTooltip="...por necesidad siempre es viable"
+                  (click)="decidir(2)" [disabled]="disable02"
+                  matTooltipClass="start-tooltip" (mouseenter)="playClickAudio()" (mouseleave)="stopClickAudio()">ACERCARSE</button>
         </mat-card-actions>
       </mat-card>
     </div>
 
     <!-- decision 3-->
     <div fxFlex="20%">
-      <mat-card [@flash]="flash" (click)="decidir(3)">
+      <mat-card [@flash]="flash" (click)="decidir(3)" class="test">
         <mat-card-header>
           <mat-card-title>
           </mat-card-title>
@@ -45,14 +49,16 @@
           <img mat-card-image src="../../../assets/riqueza.png">
         </mat-card-content>
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-          <button mat-raised-button matTooltip="...donde no te incumbe puede ser peligroso" (click)="decidir(3)" [disabled]="disable03" matTooltipClass="start-tooltip">IRRUMPIR</button>
+          <button mat-raised-button matTooltip="...donde no te incumbe puede ser peligroso"
+          (click)="decidir(3)" [disabled]="disable03"
+          matTooltipClass="start-tooltip" (mouseenter)="playClickAudio()" (mouseleave)="stopClickAudio()">IRRUMPIR</button>
         </mat-card-actions>
       </mat-card>
     </div>
 
     <!-- decision 4-->
     <div fxFlex="20%">
-      <mat-card [@flash]="flash" (click)="decidir(4)">
+      <mat-card [@flash]="flash" class="test">
         <mat-card-header>
           <mat-card-title>
           </mat-card-title>
@@ -61,14 +67,16 @@
           <img mat-card-image src="../../../assets/alegria.png">
         </mat-card-content>
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-          <button mat-raised-button matTooltip="...para sobrevivir si es necesario" (click)="decidir(4)" [disabled]="disable04" matTooltipClass="start-tooltip">ATACAR</button>
+          <button mat-raised-button matTooltip="...para sobrevivir si es necesario"
+          (click)="decidir(4)" [disabled]="disable04"
+          matTooltipClass="start-tooltip" (mouseenter)="playClickAudio()" (mouseleave)="stopClickAudio()">ATACAR</button>
         </mat-card-actions>
       </mat-card>
     </div>
 
     <!-- decision 5-->
     <div fxFlex="20%">
-      <mat-card [@flash]="flash" (click)="decidir(5)">
+      <mat-card [@flash]="flash" class="test">
         <mat-card-header>
           <mat-card-title>
           </mat-card-title>
@@ -77,7 +85,9 @@
           <img mat-card-image src="../../../assets/dios.png">
         </mat-card-content>
         <mat-card-actions fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-          <button mat-raised-button matTooltip="...al lugar donde perteneces" (click)="decidir(5)" [disabled]="disable05" matTooltipClass="start-tooltip">VOLVER</button>
+          <button mat-raised-button matTooltip="...al lugar donde perteneces"
+          (click)="decidir(5)" [disabled]="disable05"
+          matTooltipClass="start-tooltip" (mouseenter)="playClickAudio()" (mouseleave)="stopClickAudio()">VOLVER</button>
         </mat-card-actions>
       </mat-card>
     </div>

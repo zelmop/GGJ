@@ -24,8 +24,11 @@ export class TextoComponent implements OnInit {
 
   public continue: boolean;
 
+  public audio: any;
+
   constructor( private route: Router) {
     this.continue = false;
+    this.audio = new Audio();
   }
 
   ngOnInit() {
@@ -34,8 +37,20 @@ export class TextoComponent implements OnInit {
     }, 5000);
   }
 
-  continuar() {
+  public continuar() {
+    this.stopMainAudio();
     this.route.navigate(['/home']);
+  }
+
+  public playMainAudio() {
+    this.audio.src = '../../../assets/sound/main.wav';
+    this.audio.load();
+    this.audio.play();
+  }
+
+  public stopMainAudio() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
   }
 
 }

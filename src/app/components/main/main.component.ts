@@ -75,16 +75,35 @@ export class MainComponent implements AfterViewInit {
 
   }
 
-  public playAudio() {
-    this.audio.src = '../../../assets/sound/Grito.m4a';
+  public playClickAudio() {
+    this.audio.src = '../../../assets/sound/click.wav';
     this.audio.load();
     this.audio.play();
   }
 
-  public stopAudio() {
+  public stopClickAudio() {
     this.audio.pause();
     this.audio.currentTime = 0;
   }
+
+  public playRigthAnswer() {
+    this.audio.src = '../../../assets/sound/Good.wav';
+    this.audio.load();
+    this.audio.play();
+    setTimeout(() => {
+      this.stopClickAudio();
+    }, 15000);
+  }
+
+  public playWrongAnswer() {
+    this.audio.src = '../../../assets/sound/Fail.wav';
+    this.audio.load();
+    this.audio.play();
+    setTimeout(() => {
+      this.stopClickAudio();
+    }, 15000);
+  }
+
 
   public checkEvent(event) {
     console.log(event);
@@ -97,16 +116,16 @@ export class MainComponent implements AfterViewInit {
           this.disable01 = true;
           break;
         case 2:
-          this.disable01 = true;
+          this.disable02 = true;
           break;
         case 3:
-          this.disable01 = true;
+          this.disable03 = true;
           break;
         case 4:
-          this.disable01 = true;
+          this.disable04 = true;
           break;
         case 5:
-          this.disable01 = true;
+          this.disable05 = true;
           break;
         default:
           break;
@@ -119,11 +138,13 @@ export class MainComponent implements AfterViewInit {
 
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
+          this.playRigthAnswer();
           this.asserts++;
           if (this.asserts === 4) {
             this.route.navigate(['/win']);
           }
         } else {
+          this.playWrongAnswer();
           this.life -= 1;
           if (this.life === 0) {
             this.route.navigate(['/lose']);

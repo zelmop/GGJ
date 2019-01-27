@@ -1,7 +1,7 @@
-<div class="start-container">
+<div class="start-container" (mouseenter)="playMainAudio()" (mouseleave)="stopMainAudio()">
   <img class="imagen-fondo" src="../../../assets/pantalla_inicio.png">
   <div fxLayout="row" fxLayoutAlign="center center">
     <button mat-stroked-button (click)="iniciar()" class="boton-start">iniciar</button>
-    <button mat-stroked-button class="boton-start">creditos</button>
+    <button mat-stroked-button class="boton-start" (click)="creditos()">creditos</button>
   </div>
 </div>

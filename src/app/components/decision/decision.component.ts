@@ -21,6 +21,8 @@ export class DecisionComponent implements OnInit {
 
   public setFinal: any;
 
+  public audio = new Audio();
+
   constructor( public dialogRef: MatDialogRef<DecisionComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.case = this.data.case;
 
@@ -36,9 +38,9 @@ export class DecisionComponent implements OnInit {
                          '../../../../assets/decisionTres02.jpg',
                          '../../../../assets/decisionTres03.jpg'];
 
-    this.setDecisionesCuatro = [ '../../../../assets/decisionCuatro01.jpg',
-                           '../../../../assets/decisionCuatro02.jpg',
-                           '../../../../assets/decisionCuatro03.jpg'];
+    this.setDecisionesCuatro = [ '../../../../assets/decisionCuatro01.png',
+                                 '../../../../assets/decisionCuatro02.png',
+                                 '../../../../assets/decisionCuatro03.png'];
 
     this.setDecisionesCinco = [ '../../../../assets/decisionCinco01.jpg',
                           '../../../../assets/decisionCinco02.jpg',
@@ -68,10 +70,19 @@ export class DecisionComponent implements OnInit {
     }
   }
 
+  public playClickedAudio() {
+    this.audio.src = '../../../assets/sound/click2.wav';
+    this.audio.load();
+    this.audio.play();
+  }
+
+  public stopClickedAudio() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
+  }
+
   decision(decisionTomada: boolean) {
     let that = this;
-    // debugger;
-    console.log(that.case);
 
     switch(that.case) {
       case 1:
@@ -101,6 +112,7 @@ export class DecisionComponent implements OnInit {
         } else {
           that.imagen = that.setDecisionesCuatro[2];
         }
+        break;
       case 5:
         if (decisionTomada) {
           that.imagen = that.setDecisionesCinco[1];
@@ -114,7 +126,7 @@ export class DecisionComponent implements OnInit {
 
     setTimeout(() => {
       this.dialogRef.close(decisionTomada);
-    }, 1000);
+    }, 300);
 
   }
 

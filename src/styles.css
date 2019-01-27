@@ -95,6 +95,10 @@
   text-align: center;
 }
 
+.creditos {
+  margin-bottom: 5px;
+}
+
 /* bright */
 .animation-container {
   animation-name: imagenBright;
@@ -148,4 +152,8 @@
 
 .fadeIn {
     animation-name: fadeIn;
+}
+
+.test {
+    background-color: black;
 }
