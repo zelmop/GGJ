@@ -38,6 +38,12 @@ export class MainComponent implements AfterViewInit {
 
   public audio = new Audio();
 
+  public image01 = '../../../assets/viaje.png';
+  public image02 = '../../../assets/necesidad.png';
+  public image03 = '../../../assets/riqueza.png';
+  public image04 = '../../../assets/alegria.png';
+  public image05 = '../../../assets/dios.png';
+
   @ViewChild( 'myCanvas' ) canvas: ElementRef;
   constructor( public dialog: MatDialog, private route: Router ) {
     this.disable01 = false;
