@@ -74,18 +74,17 @@ export class MainComponent implements AfterViewInit {
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.asserts++;
+          if (this.asserts === 4) {
+            this.route.navigate(['/win']);
+          }
         } else {
           this.life -= 1;
+          if (this.life === 0) {
+            this.route.navigate(['/lose']);
+          }
         }
       });
-
-      if (this.life === 0) {
-        this.route.navigate(['/lose']);
-      }
-
-      if (this.asserts === 4) {
-        this.route.navigate(['/win']);
-      }
+      
   }
 
 }
