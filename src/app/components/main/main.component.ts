@@ -45,6 +45,7 @@ export class MainComponent implements AfterViewInit {
   public image05 = '../../../assets/dios.png';
 
   @ViewChild( 'myCanvas' ) canvas: ElementRef;
+  decision: any;
   constructor( public dialog: MatDialog, private route: Router ) {
     this.disable01 = false;
     this.disable02 = false;
@@ -93,6 +94,7 @@ export class MainComponent implements AfterViewInit {
   }
 
   public playRigthAnswer() {
+
     this.audio.src = '../../../assets/sound/Good.wav';
     this.audio.load();
     this.audio.play();
@@ -102,6 +104,7 @@ export class MainComponent implements AfterViewInit {
   }
 
   public playWrongAnswer() {
+
     this.audio.src = '../../../assets/sound/Fail.wav';
     this.audio.load();
     this.audio.play();
@@ -145,12 +148,14 @@ export class MainComponent implements AfterViewInit {
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.playRigthAnswer();
+
           this.asserts++;
-          if (this.asserts === 4) {
+          if (this.asserts === 3) {
             this.route.navigate(['/win']);
           }
         } else {
           this.playWrongAnswer();
+
           this.life -= 1;
           if (this.life === 0) {
             this.route.navigate(['/lose']);

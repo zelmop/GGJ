@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WinComponent implements OnInit {
 
+  public audio = new Audio();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public playGaiaVoice() {
+    this.audio.src = '../../../assets/sound/Gaia.wav';
+    this.audio.load();
+    this.audio.play();
+  }
+
+  public stopGaiaVoice() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
   }
 
 }

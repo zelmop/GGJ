@@ -26,25 +26,25 @@ export class DecisionComponent implements OnInit {
   constructor( public dialogRef: MatDialogRef<DecisionComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.case = this.data.case;
 
-    this.setDecisionesUno = [ '../../../../assets/decisionUno01.jpg',
-                        '../../../../assets/decisionUno02.jpg',
-                        '../../../../assets/decisionUno03.jpg'];
+    this.setDecisionesUno = [ '../../../../assets/decisionUno01.png',
+                        '../../../../assets/decisionUno02.png',
+                        '../../../../assets/decisionUno03.png'];
 
-    this.setDecisionesDos = [ '../../../../assets/decisionDos01.jpg',
-                       '../../../../assets/decisionDos02.jpg',
-                       '../../../../assets/decisionDos03.jpg'];
+    this.setDecisionesDos = [ '../../../../assets/decisionDos01.png',
+                       '../../../../assets/decisionDos02.png',
+                       '../../../../assets/decisionDos03.png'];
 
-    this.setDecisionesTres = [ '../../../../assets/decisionTres01.jpg',
-                         '../../../../assets/decisionTres02.jpg',
-                         '../../../../assets/decisionTres03.jpg'];
+    this.setDecisionesTres = [ '../../../../assets/decisionTres01.png',
+                         '../../../../assets/decisionTres02.png',
+                         '../../../../assets/decisionTres03.png'];
 
     this.setDecisionesCuatro = [ '../../../../assets/decisionCuatro01.png',
                                  '../../../../assets/decisionCuatro02.png',
                                  '../../../../assets/decisionCuatro03.png'];
 
-    this.setDecisionesCinco = [ '../../../../assets/decisionCinco01.jpg',
-                          '../../../../assets/decisionCinco02.jpg',
-                          '../../../../assets/decisionCinco03.jpg'];
+    this.setDecisionesCinco = [ '../../../../assets/decisionCinco01.png',
+                          '../../../../assets/decisionCinco02.png',
+                          '../../../../assets/decisionCinco03.png'];
 
   }
 
