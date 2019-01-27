@@ -52,8 +52,6 @@ export class MainComponent implements AfterViewInit {
     this.context = canvas.getContext( '2d' );
 
     this.tick();
-
-    this.playAudio();
   }
 
   public tick() {
@@ -78,9 +76,14 @@ export class MainComponent implements AfterViewInit {
   }
 
   public playAudio() {
-    this.audio.src = '../../../assets/sound/test.mp3';
+    this.audio.src = '../../../assets/sound/Grito.m4a';
     this.audio.load();
     this.audio.play();
+  }
+
+  public stopAudio() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
   }
 
   public checkEvent(event) {

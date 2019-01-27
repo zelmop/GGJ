@@ -4,7 +4,7 @@
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <!-- decision 1-->
     <div fxFlex="20%">
-      <mat-card [@flash]="flash">
+      <mat-card [@flash]="flash" (mouseenter)="playAudio()" (mouseleave)="stopAudio()">
         <mat-card-header>
           <mat-card-title>
           </mat-card-title>
